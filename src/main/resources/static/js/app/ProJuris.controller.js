@@ -3,6 +3,7 @@ app.controller("ProJurisController",function ($scope,$http) {
     $scope.registra = false;
     $scope.edit = false;
     $scope.cargo = true;
+    $scope.select = false;
     $scope.search={};
     $scope.funcionario={};
     $scope.funcionarios = [];
@@ -64,6 +65,7 @@ app.controller("ProJurisController",function ($scope,$http) {
         $http({method : 'GET', url : 'http://localhost:8080/calculaCargos'})
             .then(function sucessCallBack(response) {
                 $scope.cargo = true;
+                $scope.select = true;
                 $scope.despesasCargos = response.data;
             }, function errorCallBack(response) {
                 console.log('Error:  ' + response)
@@ -83,12 +85,12 @@ app.controller("ProJurisController",function ($scope,$http) {
     }
 
     $scope.getMyChar = function(){
-        $http({method : 'GET', url : 'http://localhost:8080/findMyChar/'+$scope.myArray})
+        $http({method : 'GET', url : 'http://localhost:8080/findMyChar/'+$scope.myChar.string})
             .then(function sucessCallBack(response) {
                 $scope.myChar = response.data;
                 $scope.callMyChar = true;
                 if($scope.myChar.result == ""){
-                    $scope.myChar.result = "''"
+                    $scope.myChar.result = "\" \""
                 }
             }, function errorCallBack(response) {
                 console.log('Error:  ' + response)
@@ -115,9 +117,11 @@ app.controller("ProJurisController",function ($scope,$http) {
             .then(function sucessCallBack(response) {
                 $scope.myArray.result = response.data;
                 $scope.callMyArray = true;
+                $scope.myArray.array = [];
+                $scope.myArray.subArray = [];
             }, function errorCallBack(response) {
                 console.log('Error:  ' + response)
-                alert('Erro ao buscar Resultado MyChar!')
+                alert('Erro ao buscar Resultado MyArray!')
             });
     }
 })

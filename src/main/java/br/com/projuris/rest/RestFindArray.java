@@ -19,7 +19,7 @@ public class RestFindArray {
     public static final Logger logger = LoggerFactory.getLogger(RestFindChar.class);
 
     @RequestMapping(value = "/findArray/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    private ResponseEntity<Integer> findMyChar(@RequestBody MyArray myArray){
+    private ResponseEntity<Integer> findMyArray(@RequestBody MyArray myArray){
 
         int[] array = myArray.getArray();
         int[] subArray = myArray.getSubArray();
