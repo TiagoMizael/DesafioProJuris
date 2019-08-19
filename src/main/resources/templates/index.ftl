@@ -22,7 +22,7 @@
 <div class="panel-body">
 
     <ul class="nav nav-tabs" style="font-weight: bold">
-        <li ><a ng-click="select = true" href="#funcionario" data-toggle="tab">
+        <li><a ng-click="select = true" href="#funcionario" data-toggle="tab">
             <span class="glyphicon glyphicon-user"></span>
             Funcionários</a></li>
         <li><a ng-click="getCargos()" href="#custos" data-toggle="tab">
@@ -167,10 +167,8 @@
                 <span class="input-group-btn">
                     <button ng-click="getMyChar()" class="btn btn-primary" type="button">Chamar Função</button>
                     </span></div>
-            <div ng-show="callMyChar">
-            <label >Resultado:</label>
-            <div class="font-result">{{myChar.result}}</div>
-            </div>
+            <label>Resultado:</label>
+            <div class="font-result">{{resultChar.result}}</div>
         </div>
         <div class="tab-pane fade in active" id="findArray">
             <div style="padding-top: 15px" class="form-group">
@@ -181,16 +179,16 @@
             </div>
             <div class="form-group bot">
                 <label class="control-label">SubArray</label>
-                <input ng-model="convert.stringB"  class="form-control"
+                <input ng-model="convert.stringB" class="form-control"
                        placeholder="Digite o SubArray no formato: 0,1,2,..."
                        type="text">
             </div>
             <button ng-click="getMyArray()" type="button"
                     class="btn btn-primary">Chamar Função</span></button>
-        </div>
-        <div ng-show="callMyArray">
-        <label style="padding-top: 10px" >Resultado:</label>
-        <div class="font-result">{{myArray.result}}</div>
+            <div>
+                <label style="padding-top: 10px">Resultado:</label>
+                <div class="font-result">{{myArray.result}}</div>
+            </div>
         </div>
     </div>
 </div>

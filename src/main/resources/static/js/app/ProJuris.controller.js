@@ -15,6 +15,7 @@ app.controller("ProJurisController",function ($scope,$http) {
     $scope.myArray.subArray = [];
     $scope.convert = {};
     $scope.callMyChar = false;
+    $scope.callMyArray = false;
 
     $scope.getFuncionarios = function(){
         $http({method : 'GET', url : 'http://localhost:8080/funcionarios'})
@@ -87,10 +88,10 @@ app.controller("ProJurisController",function ($scope,$http) {
     $scope.getMyChar = function(){
         $http({method : 'GET', url : 'http://localhost:8080/findMyChar/'+$scope.myChar.string})
             .then(function sucessCallBack(response) {
-                $scope.myChar = response.data;
+                $scope.resultChar = response.data;
                 $scope.callMyChar = true;
-                if($scope.myChar.result == ""){
-                    $scope.myChar.result = "\" \""
+                if($scope.resultChar.result == ""){
+                    $scope.resultChar.result = "\" \""
                 }
             }, function errorCallBack(response) {
                 console.log('Error:  ' + response)
